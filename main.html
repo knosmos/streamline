@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<!--
+This page displays all the courses for a given student.
+-->
+<html>
+    <head>
+        <title>streamline</title>
+        <script src=sendcall.js></script>
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+    <body>
+        <div class=container>
+            <h2 class=heading>streamline.</h2>
+            <a href=about.html class=back>about</a>
+            <a onclick="logout()" class=back>logout</a>
+            <div id=courses class=grid></div>
+        </div>
+        <script src="loadCourses.js"></script>
+    </body>
+</html>

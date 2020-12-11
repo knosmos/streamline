@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<!--
+This page is a login prompt. If the page detects that the user has already stored an auth token,
+it redirects to the main courses page.
+-->
+<html>
+    <head>
+        <title>streamline</title>
+        <script src=sendcall.js></script>
+        <link rel="stylesheet" href="style.css" type="text/css">
+    </head>
+    <body>
+        <div id="login-container">
+            <h2 class='heading'>enter token</h2>
+            <input id=token-box>
+            <br><br>
+            <button id=login-button onclick="login()">log in</button>
+            <p style="max-width:400px;">To obtain a token, navigate to <a href="https://princetonk12.instructure.com/profile">princetonk12.instructure.com/profile</a>. Scroll down to "Approved Integrations", press "+ New Access Token" and paste the generated token into the box above.</p>          
+            <a href="about.html" class='back'>about streamline</a>
+        </div>
+        <script>
+            function login(){
+                let token = document.getElementById("token-box").value
+                // is token valid?
+                if (sendcall("courses/?access_token="+token)==-1){
+                    document.getElementById("token-box").value = '';
+                    alert("invalid token, please try again");
+                }
+                else{
+                    // store token
+                    setToken(token);
+                    location.href = "main.html";                    
+                }
+            }
+        </script>
+    </body>
+</html>
