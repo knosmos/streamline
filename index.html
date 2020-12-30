@@ -19,6 +19,9 @@ it redirects to the main courses page.
             <a href="about.html" class='back'>about streamline</a>
         </div>
         <script>
+            if (localStorage.getItem("token") != null){
+                location.href = "main.html";
+            }
             function login(){
                 let token = document.getElementById("token-box").value
                 // is token valid?
